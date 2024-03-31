@@ -11,13 +11,6 @@ function getComputerChoice(){
 //display winner at the end
 //change return value in something more useful
 
-function playGame(){
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-    playRound();
-}
 
 
 
@@ -25,49 +18,72 @@ function playGame(){
 function playRound(playerSelection, computerSelection){// function takes playerSelection and computerSelection
     // rock2 paper3 scissor1
     let tie = (`Tie! You picked ${playerSelection} and Mac picked ${computerSelection}!`);
-    let won = (`You Won! ${playerSelection} beats ${computerSelection}.`);
-    let lose = (`You Lose! ${playerSelection} beats ${computerSelection}.`);
+    let won = (`${playerSelection} beats ${computerSelection}.`);
+    let lose = (`${computerSelection} beats ${playerSelection}.`);
 
-    if (playerSelection.toLowerCase() === computerSelection.toLowerCase()){// function is case insensitive
-        return tie;// return string lose win tie // use return not console.log()
+
+
+    if ((playerSelection.toLowerCase()) === (computerSelection.toLowerCase())){// function is case insensitive
+        console.log(tie);// return string lose win tie // use return not console.log()
    }  else if ((playerSelection.toLowerCase() === "rock") && (computerSelection.toLowerCase() === "paper")){
+    games++;
     scoreMac++;
-    return lose;
+    console.log(lose);
     
    } else if ((playerSelection.toLowerCase() === "rock") && (computerSelection.toLowerCase() === "scissor")){
-    scoreGi++;
-    return won;
+    games++;
+    scoreGI++;
+    console.log(won);
    
    } else if ((playerSelection.toLowerCase() === "paper") && (computerSelection.toLowerCase() === "scissor")){
+    games++;
     scoreMac++;
-    return lose;
+    console.log(lose);
    
    } else if ((playerSelection.toLowerCase() === "paper") && (computerSelection.toLowerCase() === "rock")){
-    scoreGi++;
-    return won;
+    games++;
+    scoreGI++;
+    console.log(won);
     
    }else if ((playerSelection.toLowerCase() === "scissor") && (computerSelection.toLowerCase() === "paper")){
-    scoreGi++;
-    return won;
+    games++;
+    scoreGI++;
+    console.log(won);
     
    } else if ((playerSelection.toLowerCase() === "scissor") && (computerSelection.toLowerCase() === "rock")){
+    games++;
     scoreMac++;
-    return lose;
+    console.log(lose);
     
    }
    else {
     console.log("You can pick only Rock Paper or Scissor.")
    }
-
 }
 
 
 
 
+let games = 0
+let scoreGI = 0;
+let scoreMac = 0;
 
+function playGame(){
+for (i =0; i < 5; i++){
 const playerSelection = prompt("Rock, Paper or scissor?");
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+playRound(playerSelection, computerSelection);
+console.log(`Current score is ${scoreGI} for GI and ${scoreMac} for Mac`);
+if ((i === 4) && (scoreGI > scoreMac)){
+    console.log(`Gi won! ${scoreGI} for GI and ${scoreMac} for Mac`);
+} else if  ((i === 4) && (scoreGI < scoreMac)){
+    console.log(`Mac won! ${scoreGI} for GI and ${scoreMac} for Mac`);
+} else if ((i === 4) && (scoreGI === scoreMac)){ 
+    console.log(`Tie! ${scoreGI} for GI and ${scoreMac} for Mac`);
+}
+}
+}
+// console.log(playRound(playerSelection, computerSelection));
 
 
 
