@@ -4,20 +4,12 @@ let scoreMac = 0;
 
 playGame();
 
-
-
 // function GetComputerChoice
 function getComputerChoice(){
     const choices = ["rock","paper","scissor"];
     return choices[(Math.random() * choices.length) | 0];
     // return rock paper scissor
 }
-
-
-
-
-
-
 
 // function play a single round
 function playRound(playerSelection, computerSelection){// function takes playerSelection and computerSelection
@@ -26,10 +18,8 @@ function playRound(playerSelection, computerSelection){// function takes playerS
     let won = console.log(`${playerSelection} beats ${computerSelection}.`);
     let lose = console.log(`${computerSelection} beats ${playerSelection}.`);
 
-
-
     if ((playerSelection.toLowerCase()) === (computerSelection.toLowerCase())){// function is case insensitive
-        console.log(tie);// return string lose win tie // use return not console.log()
+        return tie;;// return string lose win tie // use return not console.log()
    }  else if ((playerSelection.toLowerCase() === "rock") && (computerSelection.toLowerCase() === "paper")){
     games++;
     scoreMac++;
