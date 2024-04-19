@@ -1,17 +1,14 @@
-//Computer picks rock, paper or scissor
+
 let mistake = `Error! Pick Rock, Paper or Scissor.`;
 let mac = 0;
 let player = 0;
-function getComputerChoice() {
+function getComputerChoice() { //Computer picks rock, paper or scissor
     let choices = ['rock', 'paper', 'scissor'];
     return choices[Math.floor(Math.random() * choices.length)];
 }
-// One Round
 
 
-
-//Play 5 games
-function playGame(){
+function playGame(){ //Play 5 games
     for (let i = 0; ; ) {
         const playerSelection = prompt('Rock, paper or scissor?');
         const computerSelection = getComputerChoice();
@@ -49,4 +46,12 @@ function playGame(){
 
     }
 }
-playGame(); 
+// playGame(); 
+
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissor = document.querySelector('#scissor');
+
+btnRock.addEventListener('click', () => console.log("clicked"));
+btnPaper.addEventListener('click', () => console.log("clicked"));
+btnScissor.addEventListener('click', () => console.log("clicked"));
