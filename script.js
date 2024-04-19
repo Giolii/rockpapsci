@@ -7,23 +7,16 @@ function getComputerChoice() { //Computer picks rock, paper or scissor
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
-
-function playGame(){ //Play 5 games
-        const result = playRound(playerSelection, computerSelection);
-            console.log(result); // Log the result to the console
-        if (mac + player === 5 && mac > player) {
-            console.log(`You lose! Mac points:${mac}, Player points:${player}`);
-            // break;
-        } else if (mac + player === 5 && mac < player){
-            console.log(`You win! Player points:${player}, Mac points:${mac}.`);
-            // break;
-        }
-}
-
 function playRound(playerSelection,computerSelection){
-    let tie = `TIE! ${playerSelection} and ${computerSelection}`;
-    let win = `Yes, ${playerSelection} beats ${computerSelection}.`;
-    let lose= `No, ${computerSelection} beats ${playerSelection}.`;
+    let tie = `TIE! ${playerSelection} and ${computerSelection}.`;
+    let win = `YES, ${playerSelection} beats ${computerSelection}.`;
+    let lose= `NO, ${computerSelection} beats ${playerSelection}.`;
+    const macWin = `You LOSE! Mac points:${mac}, Player points:${player}.`;
+    const playerWin = `You WIN! Player points:${player} Mac points:${mac}.`;
+
+    if (mac === 5) return macWin;
+    if (player === 5) return playerWin;
+    
 
     if ((playerSelection.toLowerCase() === 'rock' && computerSelection.toLowerCase() === 'scissor') ||
     (playerSelection.toLowerCase() === 'paper' && computerSelection.toLowerCase() === 'rock') || 
@@ -47,19 +40,25 @@ const btnRock = document.querySelector('#rock');
 const btnPaper = document.querySelector('#paper');
 const btnScissor = document.querySelector('#scissor');
 const result = document.querySelector('#result');
+const buttons = document.querySelector('#buttons');
+const score = document.querySelector('#score')
 
 btnRock.addEventListener('click', () => {
     playerSelection = 'rock';
     const computerSelection = getComputerChoice();
+    score.textContent = `PLAYER: ${player}  VS  MAC: ${mac}`
     result.textContent = (playRound(playerSelection,computerSelection));
 })
 btnPaper.addEventListener('click', () => {
     playerSelection = 'paper';
     const computerSelection = getComputerChoice();
+    score.textContent = `PLAYER: ${player}  VS  MAC: ${mac}.`
     result.textContent = (playRound(playerSelection,computerSelection));
+
 })
 btnScissor.addEventListener('click', () => {
     playerSelection = 'scissor';
     const computerSelection = getComputerChoice();
+    score.textContent = `PLAYER: ${player}  VS  MAC: ${mac}.`
     result.textContent = (playRound(playerSelection,computerSelection));
 })
