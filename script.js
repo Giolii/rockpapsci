@@ -12,7 +12,7 @@ function getComputerChoice() {
 
 //Play 5 games
 function playGame(){
-    for (let i = 0; i < 5; ) {
+    for (let i = 0; ; ) {
         const playerSelection = prompt('Rock, paper or scissor?');
         const computerSelection = getComputerChoice();
         const result = playRound(playerSelection, computerSelection);
@@ -41,17 +41,12 @@ function playGame(){
             console.log(result); // Log the result to the console
         if (mac + player === 5 && mac > player) {
             console.log(`You lose! Mac points:${mac}, Player points:${player}`);
-            break;
+            // break;
         } else if (mac + player === 5 && mac < player){
             console.log(`You win! Player points:${player}, Mac points:${mac}.`);
-            break;
+            // break;
         }
-        // if (i = 4 && mac > player) {
-        //     console.log(`You lose! Mac points:${mac}, Player points:${player}`);
-        // } else if (i = 4 && mac < player){
-        //     console.log(`You won! Mac points:${mac}, Player points:${player}`);
-        // }
 
     }
 }
-playGame();
+playGame(); 
